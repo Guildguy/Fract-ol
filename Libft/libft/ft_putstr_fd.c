@@ -1,15 +1,15 @@
-#include "../../fractal.h"
+#include "../../fractol.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	index;
+	int	i;
 
 	if (!s || fd == -1)
 		return ;
-	index = 0;
-	while (s[index] != '\0')
+	i = 0;
+	while (s[i])
 	{
-		write(fd, &s[index], 1);
-		index++;
+		write(fd, &s[i], 1);
+		i++;
 	}
 }
