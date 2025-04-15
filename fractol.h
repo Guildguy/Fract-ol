@@ -38,6 +38,14 @@
 # define ELECTRIC_BLUE   0x0066FF
 # define LAVA_RED        0xFF3300
 
+typedef struct s_map_range
+{
+	double	n_min;
+	double	n_max;
+	double	o_min;
+	double	o_max;
+}				t_map_range;
+
 typedef struct s_complex
 {
 	double	x;
@@ -71,7 +79,9 @@ void		ft_putstr_fd(char *s, int fd);
 ////init
 void		fractal_init(t_fractal *fractal);
 //math_utils
-double		map(double unscaled_n, double n_min, double n_max, double o_min, double o_max);
+void		init_range_x(t_map_range *range);
+void		init_range_y(t_map_range *range);
+double		map(double unscaled_n, t_map_range range);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	sqr_complex(t_complex z);
 ////render

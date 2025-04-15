@@ -1,10 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/15 11:38:26 by fleite-j          #+#    #+#             */
+/*   Updated: 2025/04/15 11:38:29 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fractol.h"
 #include "minilibx-linux/mlx.h"
 
-double	map(double unscaled_n, double n_min,
-			double n_max, double o_min, double o_max)
+double	map(double unscaled_n, t_map_range range)
 {
-	return ((n_max - n_min) * (unscaled_n - o_min) / (o_max - o_min) + n_min);
+	return ((range.n_max - range.n_min) * (unscaled_n - range.o_min)
+		/ (range.o_max - range.o_min) + range.n_min);
+}
+
+void	init_range_x(t_map_range *range)
+{
+	range->n_min = -2;
+	range->n_max = +2;
+	range->o_min = 0;
+	range->o_max = WIDTH;
+}
+
+void	init_range_y(t_map_range *range)
+{
+	range->n_min = +2;
+	range->n_max = -2;
+	range->o_min = 0;
+	range->o_max = HEIGHT;
 }
 
 t_complex	sum_complex(t_complex z1, t_complex z2)
