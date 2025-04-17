@@ -4,7 +4,7 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra -I. -I../
 INCLUDE = ../fractol.h
 OBJ_DIR = obj
-LIB_SRC = libft/ft_strncmp.c libft/ft_putstr_fd.c
+LIB_SRC = libft/ft_strncmp.c libft/ft_putstr_fd.c libft/ft_atodbl.c
 
 SRC = $(LIB_SRC)
 OBJ = $(patsubst libft/%.c, $(OBJ_DIR)/libft/%.o, $(LIB_SRC)) \

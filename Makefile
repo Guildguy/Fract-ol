@@ -1,7 +1,7 @@
 NAME = fractol
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I. -Iminilibx-linux
+CFLAGS = -g3 -Wall -Wextra -Werror -I. -Iminilibx-linux
 LDFLAGS = -Lminilibx-linux -lmlx -lX11 -lXext -lm
 LIBFT_DIR = Libft
 LIBFT_A = $(LIBFT_DIR)/libft.a

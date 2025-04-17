@@ -21,22 +21,22 @@
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
 
-# define BLACK       0x000000
-# define WHITE       0xFFFFFF
-# define RED         0xFF0000
-# define GREEN       0x00FF00
-# define BLUE        0x0000FF
-# define MAGENTA_BURST   0xFF00FF
-# define LIME_SHOCK      0xCCFF00
-# define NEON_ORANGE     0xFF6600
+# define WHITE       	    0xFFFFFF
+# define BLACK              0x000000
+# define RED                0xFF0000
+# define GREEN              0x00FF00
+# define BLUE               0x0000FF
+# define MAGENTA_BURST      0xFF00FF
+# define LIME_SHOCK         0xCCFF00
+# define NEON_ORANGE        0xFF6600
 # define PSYCHEDELIC_PURPLE 0x660066
-# define AQUA_DREAM      0x33CCCC
-# define HOT_PINK        0xFF66B2
-# define ELECTRIC_BLUE   0x0066FF
-# define LAVA_RED        0xFF3300
+# define AQUA_DREAM         0x33CCCC
+# define HOT_PINK           0xFF66B2
+# define ELECTRIC_BLUE      0x0066FF
+# define LAVA_RED           0xFF3300
 
 typedef struct s_map_range
 {
@@ -69,16 +69,22 @@ typedef struct s_fractal
 	t_img	img;
 	double	escape_val;
 	int		iter_def;
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
+	double	julia_x;
+	double	julia_y;
 }				t_fractal;
 
 //Libft
 ////libft
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		ft_putstr_fd(char *s, int fd);
+double		ft_atodbl(char *s);
 //Files
 ////init
 void		fractal_init(t_fractal *fractal);
-//math_utils
+////math_utils
 void		init_range_x(t_map_range *range);
 void		init_range_y(t_map_range *range);
 double		map(double unscaled_n, t_map_range range);
@@ -86,5 +92,9 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	sqr_complex(t_complex z);
 ////render
 void		fractal_render(t_fractal *fractal);
+////events
+int			close_handler(t_fractal *fractal);
+int			key_handler(int keysym, t_fractal *fractal);
+int			mouse_handler(int button, int x, int y, t_fractal *fractal);
 
 #endif

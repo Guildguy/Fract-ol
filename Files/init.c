@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include "minilibx-linux/mlx.h"
 
 static void	error_exit(t_fractal *fractal)
 {
@@ -31,7 +30,29 @@ static void	error_exit(t_fractal *fractal)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_val = 4;
-	fractal->iter_def = 42;
+	fractal->iter_def = 200;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0;
+}
+
+static void	events_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_window,
+		KeyPress,
+		KeyPressMask,
+		key_handler,
+		fractal);
+	mlx_hook(fractal->mlx_window,
+		ButtonPress,
+		ButtonPressMask,
+		mouse_handler,
+		fractal);
+	mlx_hook(fractal->mlx_window,
+		DestroyNotify,
+		StructureNotifyMask,
+		close_handler,
+		fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -53,5 +74,6 @@ void	fractal_init(t_fractal *fractal)
 			&fractal->img.endian);
 	if (!fractal->img.pxl_ptr)
 		error_exit(fractal);
+	events_init(fractal);
 	data_init(fractal);
 }

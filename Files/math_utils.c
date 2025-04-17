@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include "minilibx-linux/mlx.h"
 
 double	map(double unscaled_n, t_map_range range)
 {

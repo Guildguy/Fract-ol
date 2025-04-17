@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../fractol.h"
-#include "minilibx-linux/mlx.h"
 
 int	main(int c, char **v)
 {
@@ -21,6 +20,15 @@ int	main(int c, char **v)
 		|| (c == 4 && !ft_strncmp(v[1], "julia", 5)))
 	{
 		fractal.name = v[1];
+		fractal.julia_x = 0.0;
+		fractal.julia_y = 0.0;
+		if (c == 4 && !ft_strncmp(v[1], "julia", 5))
+		{
+			fractal.julia_x = ft_atodbl(v[2]);
+			fractal.julia_y = ft_atodbl(v[3]);
+			if (fractal.julia_x == 0.0 && fractal.julia_y == 0.0)
+				exit(EXIT_FAILURE);
+		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
