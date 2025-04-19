@@ -30,7 +30,7 @@ static void	error_exit(t_fractal *fractal)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_val = 4;
-	fractal->iter_def = 200;
+	fractal->iter_def = 250;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;

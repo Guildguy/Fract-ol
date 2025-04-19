@@ -96,5 +96,7 @@ void		fractal_render(t_fractal *fractal);
 int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
+////erro_handler
+void		error_handler(int c, char **v, double julia_x, double julia_y);
 
 #endif

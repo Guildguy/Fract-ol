@@ -26,16 +26,12 @@ int	main(int c, char **v)
 		{
 			fractal.julia_x = ft_atodbl(v[2]);
 			fractal.julia_y = ft_atodbl(v[3]);
-			if (fractal.julia_x == 0.0 && fractal.julia_y == 0.0)
-				exit(EXIT_FAILURE);
+			error_handler(c, v, fractal.julia_x, fractal.julia_y);
 		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-	{
-		ft_putstr_fd("ERROR!", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		error_handler(c, v, 0.0, 0.0);
 }
