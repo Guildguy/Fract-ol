@@ -27,16 +27,19 @@ int	key_handler(int keysym, t_fractal *fractal)
 		close_handler(fractal);
 	if (keysym == XK_Left)
 		fractal->shift_x -= (0.5 * fractal->zoom);
-	else if (keysym == XK_Right)
+	if (keysym == XK_Right)
 		fractal->shift_x += (0.5 * fractal->zoom);
-	else if (keysym == XK_Up)
+	if (keysym == XK_Up)
 		fractal->shift_y += (0.5 * fractal->zoom);
-	else if (keysym == XK_Down)
+	if (keysym == XK_Down)
 		fractal->shift_y -= (0.5 * fractal->zoom);
-	if (keysym == XK_plus)
-		fractal->iter_def -= 10;
-	else if (keysym == XK_minus)
+	if (keysym == XK_plus || keysym == XK_KP_Add)
 		fractal->iter_def += 10;
+	if (keysym == XK_minus || keysym == XK_KP_Subtract)
+	{
+		if (fractal->iter_def > 10)
+			fractal->iter_def -= 10;
+	}
 	fractal_render(fractal);
 	return (0);
 }
@@ -52,15 +55,15 @@ int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 	init_range_y(&range_y);
 	mouse_x = map(x, range_x) * fractal->zoom + fractal->shift_x;
 	mouse_y = map(y, range_y) * fractal->zoom + fractal->shift_y;
-	if (button == Button4 && fractal->zoom > 0.000001)
+	if (button == Button4)
 	{
-		fractal->zoom *= 0.8;
+		fractal->zoom *= 0.7;
 		fractal->shift_x += (mouse_x - fractal->shift_x) * 0.3;
 		fractal->shift_y += (mouse_y - fractal->shift_y) * 0.3;
 	}
 	else if (button == Button5 && fractal->zoom < 1000.0)
 	{
-		fractal->zoom *= 1.2;
+		fractal->zoom *= 1.4;
 		fractal->shift_x += (mouse_x - fractal->shift_x) * -0.2;
 		fractal->shift_y += (mouse_y - fractal->shift_y) * -0.2;
 	}

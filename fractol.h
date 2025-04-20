@@ -16,13 +16,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include <stdbool.h>
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "minilibx-linux/mlx.h"
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 500
+# define HEIGHT 500
 
 # define WHITE       	    0xFFFFFF
 # define BLACK              0x000000

@@ -14,7 +14,7 @@
 
 static void	error_exit(t_fractal *fractal)
 {
-	ft_putstr_fd("ERROR", STDERR_FILENO);
+	ft_putstr_fd("ERROR: Failed to init MLX", STDERR_FILENO);
 	if (fractal->img.img_ptr)
 		mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
 	if (fractal->mlx_window)
@@ -30,7 +30,7 @@ static void	error_exit(t_fractal *fractal)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_val = 4;
-	fractal->iter_def = 250;
+	fractal->iter_def = 0;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
