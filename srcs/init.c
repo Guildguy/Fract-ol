@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../includes/fractol.h"
 
 static void	error_exit(t_fractal *fractal)
 {

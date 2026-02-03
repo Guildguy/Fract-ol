@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../includes/fractol.h"
 
 static void	pxl_put(int x, int y, t_img *img, int color)
 {

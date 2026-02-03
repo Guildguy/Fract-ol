@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../fractol.h"
+#include "../../includes/fractol.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

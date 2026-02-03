@@ -1,8 +1,8 @@
 NAME = libft.a
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra -I. -I../
-INCLUDE = ../fractol.h
+FLAGS = -Wall -Werror -Wextra -I. -I../includes
+INCLUDE = ../includes/fractol.h
 OBJ_DIR = obj
 LIB_SRC = libft/ft_strncmp.c libft/ft_putstr_fd.c libft/ft_atodbl.c
 

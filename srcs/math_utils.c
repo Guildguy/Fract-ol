@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../includes/fractol.h"
 
 double	map(double unscaled_n, t_map_range range)
 {

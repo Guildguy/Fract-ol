@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../includes/fractol.h"
 
 static bool	check_args(char *arg)
 {
